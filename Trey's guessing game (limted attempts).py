@@ -9,11 +9,17 @@ for numberofattempts in range(1,attempts+1):
         print("You are correct!")
         print()
         break
-    else:
-        print("Sorry, that is incorrect")
+    if (userguess<solution):
         print()
+        print("Sorry, that is incorrect, your guess is too low")
         print("You have", attempts-numberofattempts, "tries left")
         print()
+    if (userguess>solution):
+        print()
+        print("Sorry, that is incorrect, your guess is too high")
+        print("You have", attempts-numberofattempts, "tries left")
     if (attempts-numberofattempts==0):
         print("Sorry, no more tries left, goodbye")
+        break
+
         
