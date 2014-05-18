@@ -15,5 +15,5 @@ for numberofattempts in range(1,attempts+1):
         print("You have", attempts-numberofattempts, "tries left")
         print()
     if (attempts-numberofattempts==0):
-        print("Sorry, no more tries left,goodbye")
+        print("Sorry, no more tries left, goodbye")
         
