@@ -2,6 +2,12 @@
 ###########################################################################
 attempts=3
 solution=7
+password=input("Please enter the password to access this game \n")
+if (password=="Python"):
+    print("That is correct! Please procced and good luck!")
+else:
+    print("Sorry that is incorrect, goodbye")
+    exit()
 for numberofattempts in range(1,attempts+1):
     userguess=int(input("Guess a number between 1 and 10 \n"))
     if (userguess==solution):
