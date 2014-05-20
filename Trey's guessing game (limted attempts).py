@@ -1,12 +1,30 @@
 #This is Trey's guessing game with limited number of tries!
 ###########################################################################
+from random import randrange
+x=randrange(10)
+solution=x
 attempts=3
-solution=7
-password=input("Please enter the password to access this game \n")
-if (password=="Python"):
-    print("That is correct! Please procced and good luck!")
+users = {
+    'Spencer':'stp123',
+    'Andrew':'penguin',
+    'Trey':'gunso',
+    'Morgan':'theflyingmo'
+    }
+username=input("Please enter your username\n")
+if (username in users):
+    password=input("Please enter the password for user " + username + "\n")
+    if (password == users[username]):
+        print("Authorizing User...")
+        print()
+        print()
+        print()
+        print()
+        print("User authorized! Please proceed and Good Luck!")
+    else:
+        print("Password incorrect")
+        exit()
 else:
-    print("Sorry that is incorrect, goodbye")
+    print("No user with that username")
     exit()
 for numberofattempts in range(1,attempts+1):
     userguess=int(input("Guess a number between 1 and 10 \n"))
