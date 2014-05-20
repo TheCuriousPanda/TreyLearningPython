@@ -40,7 +40,7 @@ for numberofattempts in range(1,attempts+1):
         print("Sorry, that is incorrect, your guess is too low")
         print("You have", attempts-numberofattempts, "tries left")
         print()
-    if (userguess<10>solution):
+    if (userguess10>solution):
         print()
         print("Sorry, that is incorrect, your guess is too high")
         print("You have", attempts-numberofattempts, "tries left")
