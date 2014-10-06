@@ -2,22 +2,36 @@
 ###########################################################################
 from random import randrange
 import time
+import UserFileEditor
 x=randrange(10)
-solution=x
+solution=x+1
 attempts=3
-users = {
-    'Spencer':'stp123',
-    'Andrew':'penguin',
-    'Trey':'gunso',
-    'Morgan':'theflyingmo',
-    'Celeste':'celestial1043'
+users = UserFileEditor.read_users()
+usernames = []
+for user in users:
+    usernames.append(user.get_name())
+stringinputs = {
+    'one':1,
+    'two':2,
+    'three':3,
+    'four':4,
+    'five':5,
+    'six':6,
+    'seven':7,
+    'eight':8,
+    'nine':9,
+    'ten':10
     }
-username=input("Please enter your username\n")
-if (username in users):
+    
+username=input("Please enter your username or \"new\" for new user\n")
+#if (username="new"):
+#    
+if (username in usernames):
+    passcheck = users[usernames.index(username)].get_password()
     password=input("Please enter the password for user " + username + "\n")
-    if (password == users[username]):
+    if (password == passcheck):
         print("Authorizing User...")
-        time.sleep(3)
+        time.sleep(1)
         print()
         print()
         print()
@@ -29,7 +43,15 @@ else:
     print("No user with that username")
     exit()
 for numberofattempts in range(1,attempts+1):
-    userguess=int(input("Guess a number between 1 and 10 \n"))
+    userguess=input("Guess a number between 1 and 10 \n")
+    try:
+        userguess=int(userguess)
+    except ValueError:
+        if (userguess.lower() in stringinputs):
+            userguess=stringinputs[userguess.lower()]
+        else:
+            print("Not a valid string input")
+            break
     if (userguess==solution):
         print()
         print("You are correct!")
@@ -46,6 +68,6 @@ for numberofattempts in range(1,attempts+1):
         print("You have", attempts-numberofattempts, "tries left")
     if (attempts-numberofattempts==0):
         print()
-        print("Sorry, the correct answer was", x)
+        print("Sorry, the correct answer was {}".format(solution))
         print("Better luck next time!")
         break
